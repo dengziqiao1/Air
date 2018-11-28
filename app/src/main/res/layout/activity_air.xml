@@ -25,7 +25,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="288dp"
+        android:layout_height="260dp"
         android:layout_marginTop="55dp"
         android:layout_toEndOf="@+id/air_seekBar_line">
 
@@ -50,8 +50,213 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
-            android:src="@mipmap/blowface2"/>
+            android:src="@mipmap/blowface2"
+            android:visibility="gone"/>
 
+        <ImageView
+            android:id="@+id/air_volume1_face_feet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:src="@mipmap/blowfacefeet2"/>
+
+        <RelativeLayout
+            android:id="@+id/air_contaminated_in_line"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/air_volume1_face_feet">
+
+            <TextView
+                android:id="@+id/air_contaminated_in_num"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="@string/air_contaminated_in_num"
+                android:textColor="#fff"
+                android:textSize="26sp"/>
+
+            <TextView
+                android:id="@+id/air_contaminated_in_tex"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/air_contaminated_in_num"
+                android:text="90"
+                android:textColor="#fff"
+                android:textSize="26sp"/>
+
+            <TextView
+                android:id="@+id/air_contaminated_in_level"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="轻度污染"
+                android:textColor="#fff"
+                android:textSize="20sp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/air_contaminated_out_line"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/air_contaminated_in_line">
+
+            <TextView
+                android:id="@+id/air_contaminated_out_num"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="@string/air_contaminated_out_num"
+                android:textColor="#fff"
+                android:textSize="26sp"/>
+
+            <TextView
+                android:id="@+id/air_contaminated_out_tex"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/air_contaminated_out_num"
+                android:text="90"
+                android:textColor="#fff"
+                android:textSize="26sp"/>
+
+            <TextView
+                android:id="@+id/air_contaminated_out_level"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="轻度污染"
+                android:textColor="#fff"
+                android:textSize="20sp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/air_contaminated_out_line">
+
+            <ImageView
+                android:id="@+id/air_direction2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="160dp"
+                android:src="@mipmap/fan4"/>
+
+            <ImageView
+                android:id="@+id/air_volume2_feet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="25dp"
+                android:src="@mipmap/blowfeet1"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/air_volume2_face"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:src="@mipmap/blowface1"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/air_volume2_face_feet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:src="@mipmap/blowfacefeet1"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/air_level_line"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true">
+
+            <ImageView
+                android:id="@+id/air_level_less"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="40dp"
+                android:src="@mipmap/fan2"/>
+
+            <ImageView
+                android:id="@+id/air_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="40dp"
+                android:layout_toEndOf="@+id/air_level_less"
+                android:src="@mipmap/wind4"/>
+
+            <ImageView
+                android:id="@+id/air_level_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="40dp"
+                android:layout_toEndOf="@+id/air_level"
+                android:src="@mipmap/fan"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="400dp">
+
+            <ImageView
+                android:id="@+id/air_right_level_less"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="40dp"
+                android:src="@mipmap/fan2"/>
+
+            <ImageView
+                android:id="@+id/air_right_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="40dp"
+                android:layout_toEndOf="@+id/air_right_level_less"
+                android:src="@mipmap/wind6"/>
+
+            <ImageView
+                android:id="@+id/air__rightlevel_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="40dp"
+                android:layout_toEndOf="@+id/air_right_level"
+                android:src="@mipmap/fan"/>
+        </RelativeLayout>
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/air_seekBar_line2"
+        android:layout_width="140dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="15dp">
+
+        <com.fce.air.VerticalSeekBar
+            android:id="@+id/air_seekBar2"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorAccent"
+            />
+    </RelativeLayout>
+
+    
 </com.fce.air.AirRelativeLayout>
