@@ -2,4 +2,6 @@
     <string name="app_name">Air</string>
     <string name="air_contaminated_in_num">车内&#160;&#160;:</string>
     <string name="air_contaminated_out_num">车外&#160;&#160;:</string>
+    <string name="air_leve_less">风量已最小</string>
+    <string name="air_leve_max">风量已最大</string>
 </resources>

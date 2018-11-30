@@ -8,35 +8,43 @@
 
     <RelativeLayout
         android:id="@+id/air_seekBar_line"
-        android:layout_width="120dp"
+        android:layout_width="140dp"
         android:layout_height="620dp">
 
         <com.fce.air.VerticalSeekBar
             android:id="@+id/air_seekBar"
-            android:layout_width="80dp"
+            android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:background="@drawable/thermometer1"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/thermometer"
+            android:max="280"
             android:progressDrawable="@null"
-            android:thumb="@drawable/on2"
-            />
+            android:thumb="@drawable/on2"/>
 
         <TextView
-            android:id="@+id/air_seekBar_text"
-            android:layout_width="40dp"
+            android:id="@+id/air_seekBar_left_text"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_toEndOf="@+id/air_seekBar"
-            android:text="145"
-            android:gravity="bottom"
-            android:textColor="#fff"
-            android:textSize="16sp"/>
+            android:gravity="bottom|center_vertical"
+            android:text="18."
+            android:textColor="@color/whites"
+            android:textSize="30sp"/>
+
+        <TextView
+            android:id="@+id/air_seekBar_left_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@+id/air_seekBar_left_text"
+            android:gravity="start|bottom|center_vertical"
+            android:text="0"
+            android:textColor="@color/whites"
+            android:textSize="24sp"/>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="188dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
         android:layout_toEndOf="@+id/air_seekBar_line">
 
         <ImageView
@@ -44,6 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
             android:src="@drawable/fan3"/>
 
         <ImageView
@@ -51,14 +60,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="25dp"
-            android:src="@drawable/blowfeet2"/>
+            android:layout_marginTop="35dp"
+            android:src="@drawable/blowfeet2"
+            android:visibility="gone"/>
 
         <ImageView
             android:id="@+id/air_volume1_face"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="55dp"
             android:src="@drawable/blowface2"
             android:visibility="gone"/>
 
@@ -66,41 +76,42 @@
             android:id="@+id/air_volume1_face_feet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:src="@drawable/blowfacefeet2"
-            android:visibility="gone"/>
+            android:layout_marginStart="45dp"
+            android:src="@drawable/blowfacefeet2"/>
 
         <RelativeLayout
             android:id="@+id/air_contaminated_in_line"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="240dp">
+            android:layout_marginStart="260dp"
+            android:layout_marginTop="20dp">
 
             <TextView
                 android:id="@+id/air_contaminated_in_num"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/air_contaminated_in_num"
-                android:textColor="#faf7f0"
-                android:textSize="18sp"/>
+                android:textColor="@color/whites"
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/air_contaminated_in_tex"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/air_contaminated_in_num"
                 android:text="90"
-                android:textColor="#faf7f0"
-                android:textSize="18sp"/>
+                android:textColor="@color/whites"
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/air_contaminated_in_level"
-                android:layout_width="80dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="25dp"
                 android:text="轻度污染"
-                android:textColor="#efe4bf"
+                android:textColor="@color/yellows"
                 android:textSize="14sp"/>
         </RelativeLayout>
 
@@ -108,33 +119,36 @@
             android:id="@+id/air_contaminated_out_line"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
             android:layout_toEndOf="@+id/air_contaminated_in_line">
 
             <TextView
                 android:id="@+id/air_contaminated_out_num"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/air_contaminated_out_num"
-                android:textColor="#faf7f0"
-                android:textSize="18sp"/>
+                android:textColor="@color/whites"
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/air_contaminated_out_tex"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/air_contaminated_out_num"
                 android:text="90"
-                android:textColor="#faf7f0"
-                android:textSize="18sp"/>
+                android:textColor="@color/whites"
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/air_contaminated_out_level"
-                android:layout_width="80dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="25dp"
                 android:text="轻度污染"
-                android:textColor="#efe4bf"
+                android:textColor="@color/yellows"
                 android:textSize="14sp"/>
         </RelativeLayout>
 
@@ -147,22 +161,24 @@
                 android:id="@+id/air_direction2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="150dp"
+                android:layout_marginStart="180dp"
+                android:layout_marginTop="20dp"
                 android:src="@drawable/fan4"/>
 
             <ImageView
                 android:id="@+id/air_volume2_feet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="25dp"
-                android:src="@drawable/blowfeet1"/>
+                android:layout_marginStart="85dp"
+                android:layout_marginTop="35dp"
+                android:src="@drawable/blowfeet1"
+                android:visibility="gone"/>
 
             <ImageView
                 android:id="@+id/air_volume2_face"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="70dp"
                 android:src="@drawable/blowface1"
                 android:visibility="gone"/>
 
@@ -170,16 +186,15 @@
                 android:id="@+id/air_volume2_face_feet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:src="@drawable/blowfacefeet1"
-                android:visibility="gone"/>
+                android:layout_marginStart="70dp"
+                android:src="@drawable/blowfacefeet1"/>
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/air_level_line"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="110dp">
+            android:layout_marginTop="130dp">
 
             <ImageView
                 android:id="@+id/air_level_less"
@@ -189,14 +204,17 @@
                 android:layout_marginTop="25dp"
                 android:src="@drawable/fan2"/>
 
-            <ImageView
+            <SeekBar
                 android:id="@+id/air_level"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="26dp"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="5dp"
                 android:layout_toEndOf="@+id/air_level_less"
-                android:src="@drawable/wind4"/>
+                android:maxHeight="26dp"
+                android:minHeight="26dp"
+                android:progressDrawable="@drawable/wind"
+                android:thumb="@null"/>
 
             <ImageView
                 android:id="@+id/air_level_add"
@@ -212,7 +230,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="420dp"
-            android:layout_marginTop="110dp">
+            android:layout_marginTop="130dp">
 
             <ImageView
                 android:id="@+id/air_right_level_less"
@@ -221,17 +239,20 @@
                 android:layout_marginTop="25dp"
                 android:src="@drawable/fan2"/>
 
-            <ImageView
+            <SeekBar
                 android:id="@+id/air_right_level"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="26dp"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="5dp"
                 android:layout_toEndOf="@+id/air_right_level_less"
-                android:src="@drawable/wind6"/>
+                android:maxHeight="26dp"
+                android:minHeight="26dp"
+                android:progressDrawable="@drawable/wind"
+                android:thumb="@null"/>
 
             <ImageView
-                android:id="@+id/air__rightlevel_add"
+                android:id="@+id/air_rightlevel_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -243,19 +264,40 @@
 
     <RelativeLayout
         android:id="@+id/air_seekBar_line2"
-        android:layout_width="120dp"
-        android:layout_height="match_parent"
+        android:layout_width="140dp"
+        android:layout_height="620dp"
         android:layout_alignParentEnd="true">
 
         <com.fce.air.VerticalSeekBar
             android:id="@+id/air_seekBar2"
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:background="@drawable/thermometer1"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/thermometer"
+            android:max="280"
             android:progressDrawable="@null"
-            android:thumb="@drawable/on2"
-            />
+            android:thumb="@drawable/on2"/>
+
+        <TextView
+            android:id="@+id/air_seekBar_right_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@+id/air_seekBar2"
+            android:gravity="start|bottom|center_vertical"
+            android:text="0"
+            android:textColor="@color/whites"
+            android:textSize="24sp"/>
+
+        <TextView
+            android:id="@+id/air_seekBar_right_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@+id/air_seekBar_right_text1"
+            android:gravity="bottom|center_vertical"
+            android:text="18."
+            android:textColor="@color/whites"
+            android:textSize="30sp"/>
     </RelativeLayout>
 
     <RelativeLayout
