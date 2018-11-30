@@ -2,7 +2,10 @@ package com.fce.air;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.SeekBar;
 
@@ -21,7 +24,7 @@ public class VerticalSeekBar extends SeekBar {
     public VerticalSeekBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
-
+    @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(h, w, oldh, oldw);
     }
@@ -37,10 +40,9 @@ public class VerticalSeekBar extends SeekBar {
         //将SeekBar转转90度
         canvas.rotate(-90);
         //将旋转后的视图移动回来
-        canvas.translate(-getHeight(), 0);
+        canvas.translate(-getHeight(),0);
         super.onDraw(canvas);
     }
-
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         invalidate();

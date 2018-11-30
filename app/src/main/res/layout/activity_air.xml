@@ -13,13 +13,23 @@
 
         <com.fce.air.VerticalSeekBar
             android:id="@+id/air_seekBar"
-            android:layout_width="60dp"
+            android:layout_width="80dp"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:progressDrawable="@null"
             android:background="@drawable/thermometer1"
+            android:progressDrawable="@null"
             android:thumb="@drawable/on2"
             />
+
+        <TextView
+            android:id="@+id/air_seekBar_text"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@+id/air_seekBar"
+            android:text="145"
+            android:gravity="bottom"
+            android:textColor="#fff"
+            android:textSize="16sp"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -242,8 +252,8 @@
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:progressDrawable="@null"
             android:background="@drawable/thermometer1"
+            android:progressDrawable="@null"
             android:thumb="@drawable/on2"
             />
     </RelativeLayout>
