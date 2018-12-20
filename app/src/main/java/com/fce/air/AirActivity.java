@@ -2,15 +2,25 @@ package com.fce.air;
 
 
 import android.app.Activity;
+import android.app.Instrumentation;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+/**
+ * 空调
+ */
 public class AirActivity extends Activity implements SeekBar.OnSeekBarChangeListener, View
-        .OnClickListener {
+        .OnClickListener, BottomFinshLayout.OnFinishListener {
     private VerticalSeekBar leftVerSeekBar, rightVerSeekBar;  //垂直进度条
     private SeekBar leftLeveSeekBar, rightLeveSeekBar; //风量左右 等级进度条
     private ImageView leftLeveLess, rightLeveLess, leftLeveAdd, rightLeveAdd; // 空调风量加减 键
@@ -20,7 +30,8 @@ public class AirActivity extends Activity implements SeekBar.OnSeekBarChangeList
     private float leftVerProgress, rightVerProgress, leftLeveProgeress, rightLeveProgeress;
 
     private ImageView airLeftWin, airRightWin, airLeftFace, airLeftFeet, airLeftFaceFeet,
-            airRightFace, airRightFeet, airRightFaceFeet;//左 右 风向
+            airLeftFeetShuang, airRightFace, airRightFeet, airRightFaceFeet, airRightFeetShuang;
+    //左 右 风向
     private int leftWindNum = 0, rightWindNum = 0;     //风向 显示 值
 
     private TextView airContaminatedInTex, airContaminatedInLevel, airContaminatedOutTex,
@@ -29,33 +40,39 @@ public class AirActivity extends Activity implements SeekBar.OnSeekBarChangeList
     private ImageView airAuto, airEcon, airOff, airChuQu, airChuShaunag, airAcMax, airSync,
             airRear, airAc, airNixunhuan;    //控制开关
 
-    private ShareXML share;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_air);
         initView();
-
     }
-
     /**
      * 初始化View
      */
     private void initView() {
-        share = new ShareXML(this);
+        Intent intent = new Intent(SYSTEMUI_UP_DATA_TITLE);
+        intent.putExtra(SYSTEMUI_UP_DATA_TITLE_CONTENT, "收音机");
+        sendBroadcast(intent);
+
+        myBraocast braocast = new myBraocast();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.action.OPENSUBSCRIBE");
+        intentFilter.addAction("com.action.OPENAPP");
+        intentFilter.addAction("com.action.HISTORY");
+        registerReceiver(braocast, intentFilter);
+        BottomFinshLayout bottomFinshLayout = this.findViewById(R.id.air);
         leftVerSeekBar = this.findViewById(R.id.air_seekBar);
         rightVerSeekBar = this.findViewById(R.id.air_seekBar2);
+        leftVerSeekBar.setVisibility(View.GONE);
+        leftVerSeekBar.setVisibility(View.VISIBLE);
 
         leftSeekBarTex = this.findViewById(R.id.air_seekBar_left_text);
         leftSeekBarTex1 = this.findViewById(R.id.air_seekBar_left_text1);
-
         rightSeekBarTex = this.findViewById(R.id.air_seekBar_right_text);
         rightSeekBarTex1 = this.findViewById(R.id.air_seekBar_right_text1);
 
         leftLeveSeekBar = this.findViewById(R.id.air_level);
         rightLeveSeekBar = this.findViewById(R.id.air_right_level);
-
         leftLeveLess = this.findViewById(R.id.air_level_less);
         leftLeveAdd = this.findViewById(R.id.air_level_add);
         rightLeveLess = this.findViewById(R.id.air_right_level_less);
@@ -70,13 +87,14 @@ public class AirActivity extends Activity implements SeekBar.OnSeekBarChangeList
         airRightFace = this.findViewById(R.id.air_volume2_face);
         airRightFeet = this.findViewById(R.id.air_volume2_feet);
         airRightFaceFeet = this.findViewById(R.id.air_volume2_face_feet);
+        airLeftFeetShuang = this.findViewById(R.id.air_volume1_feet_shuang);
+        airRightFeetShuang = this.findViewById(R.id.air_volume1_feet_shuang2);
 
         airContaminatedInTex = this.findViewById(R.id.air_contaminated_in_tex);
         airContaminatedInLevel = this.findViewById(R.id.air_contaminated_in_level);
 
         airContaminatedOutTex = this.findViewById(R.id.air_contaminated_out_tex);
         airContaminatedOutLevel = this.findViewById(R.id.air_contaminated_out_level);
-
 
         airAuto = this.findViewById(R.id.air_auto);
         airEcon = this.findViewById(R.id.air_econ);
@@ -88,7 +106,6 @@ public class AirActivity extends Activity implements SeekBar.OnSeekBarChangeList
         airRear = this.findViewById(R.id.air_rear);
         airAc = this.findViewById(R.id.air_ac);
         airNixunhuan = this.findViewById(R.id.air_nixunhuan);
-
         airAuto.setOnClickListener(this);
         airEcon.setOnClickListener(this);
         airOff.setOnClickListener(this);
@@ -110,8 +127,32 @@ public class AirActivity extends Activity implements SeekBar.OnSeekBarChangeList
         rightLeveAdd.setOnClickListener(this);
         airLeftWin.setOnClickListener(this);
         airRightWin.setOnClickListener(this);
+        bottomFinshLayout.setOnFinishListener(this);
+
+        airOff.setSelected(true);  //off 默认开启
+
+//        try{
+//            Runtime runtime=Runtime.getRuntime();
+//            runtime.exec("input keyevent " + KeyEvent.KEYCODE_BACK);
+//        }catch(IOException e){
+//            Log.e("Exception when doBack", e.toString());
+//        }
+
+
     }
 
+    class myBraocast extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            Log.e("dzq", "接收到的广播： " + intent.getAction());
+        }
+    }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {   //进度监听
@@ -119,35 +160,31 @@ public class AirActivity extends Activity implements SeekBar.OnSeekBarChangeList
             case R.id.air_seekBar:    //空调 左边 温度
                 String temperatureTex = String.valueOf((float) ((progress / 10 * 0.5) + 18));
                 String[] str = temperatureTex.split("\\.");
-                leftSeekBarTex.setY(-progress * 2.0f);
-                leftSeekBarTex1.setY(-progress * 2.0f);
+                leftSeekBarTex.setY(-progress * 1.85f);
+                leftSeekBarTex1.setY(-progress * 1.85f);
 
                 leftSeekBarTex.setText(str.length == 2 ? str[0] : temperatureTex);
                 leftSeekBarTex1.setText(String.valueOf("." + (str.length == 2 ? str[1] :
                         temperatureTex)));
 
-                share.addInt(AirConfig.AIR_LEFT_TEMPERATURE, progress);
                 break;
             case R.id.air_seekBar2:    //空调 右边 温度
                 String temperatureTex1 = String.valueOf((float) ((progress / 10 * 0.5) + 18));
                 String[] str1 = temperatureTex1.split("\\.");
-                rightSeekBarTex.setY(-progress * 2.0f);
-                rightSeekBarTex1.setY(-progress * 2.0f);
+                rightSeekBarTex.setY(-progress * 1.8f);
+                rightSeekBarTex1.setY(-progress * 1.8f);
 
                 rightSeekBarTex.setText(str1.length == 2 ? str1[0] : temperatureTex1);
                 rightSeekBarTex1.setText(String.valueOf("." + (str1.length == 2 ? str1[1] :
                         temperatureTex1)));
-                share.addInt(AirConfig.AIR_RIGHT_TEMPERATURE, progress);
                 break;
             case R.id.air_level:     //左边风量等级
                 leftLeveProgeress = progress / 12.5f;
                 setAirLevel(leftLeveSeekBar, leftLeveProgeress);
-                share.addInt(AirConfig.AIR_LEFT_LEVEL, progress);
                 break;
             case R.id.air_right_level:  //右边风量等级
                 rightLeveProgeress = progress / 12.5f;
                 setAirLevel(rightLeveSeekBar, rightLeveProgeress);
-                share.addInt(AirConfig.AIR_RIGHT_LEVEL, progress);
                 break;
         }
 
@@ -168,11 +205,9 @@ public class AirActivity extends Activity implements SeekBar.OnSeekBarChangeList
         switch (v.getId()) {
             case R.id.air_direction1:    //风向
                 setLeftAirWind();
-                share.addInt(AirConfig.AIR_LEFT_WIND, leftWindNum);
                 break;
             case R.id.air_direction2:
                 setRightAirWind();
-                share.addInt(AirConfig.AIR_RIGHT_WIND, rightWindNum);
                 break;
             case R.id.air_level_less:    //风量
                 leftLeveSeekBar.setProgress(getAirLevel(leftLeveSeekBar, 0));
@@ -188,44 +223,72 @@ public class AirActivity extends Activity implements SeekBar.OnSeekBarChangeList
                 break;
             case R.id.air_auto:
                 setSelection(airAuto);
-                share.addBoolean(AirConfig.AIR_AUTO, getSelection(airAuto));
                 break;
             case R.id.air_econ:
                 setSelection(airEcon);
-                share.addBoolean(AirConfig.AIR_ECON, getSelection(airAuto));
                 break;
             case R.id.air_off:
                 setSelection(airOff);
-                share.addBoolean(AirConfig.AIR_OFF, getSelection(airOff));
+                if (airOff.isSelected()) {
+                    setOffStatus(true);
+                } else {
+                    setOffStatus(false);
+                }
                 break;
             case R.id.air_chuqu:
                 setSelection(airChuQu);
-                share.addBoolean(AirConfig.AIR_CHUQU, getSelection(airChuQu));
                 break;
             case R.id.air_chushuang:
                 setSelection(airChuShaunag);
-                share.addBoolean(AirConfig.AIR_CHUSHUANG, getSelection(airChuShaunag));
                 break;
             case R.id.air_acmax:
+
                 setSelection(airAcMax);
-                share.addBoolean(AirConfig.AIR_ACMAX, getSelection(airAcMax));
                 break;
             case R.id.air_sync:
+                Intent Intent2 = new Intent("");
+                this.sendBroadcast(Intent2);
                 setSelection(airSync);
-                share.addBoolean(AirConfig.AIR_SYNC, getSelection(airSync));
                 break;
             case R.id.air_rear:
+                Intent Intent1 = new Intent("");
+                this.sendBroadcast(Intent1);
                 setSelection(airRear);
-                share.addBoolean(AirConfig.AIR_REAR, getSelection(airRear));
                 break;
             case R.id.air_ac:
                 setSelection(airAc);
-                share.addBoolean(AirConfig.AIR_AC, getSelection(airAc));
                 break;
             case R.id.air_nixunhuan:
                 setSelection(airNixunhuan);
-                share.addBoolean(AirConfig.AIR_NIXUNHUAN, getSelection(airNixunhuan));
                 break;
+        }
+    }
+
+    /**
+     * @param status off 关闭 所有功能都不可点击
+     */
+    private void setOffStatus(boolean status) {
+        leftVerSeekBar.setEnabled(status);
+        rightVerSeekBar.setEnabled(status);
+        leftLeveSeekBar.setEnabled(status);
+        rightLeveSeekBar.setEnabled(status);
+        airLeftWin.setEnabled(status);
+        airRightWin.setEnabled(status);
+        leftLeveLess.setEnabled(status);
+        rightLeveLess.setEnabled(status);
+        leftLeveAdd.setEnabled(status);
+        rightLeveAdd.setEnabled(status);
+        airAuto.setEnabled(status);
+        airEcon.setEnabled(status);
+        airChuQu.setEnabled(status);
+        airChuShaunag.setEnabled(status);
+        airNixunhuan.setEnabled(status);
+        airAcMax.setEnabled(status);
+        airSync.setEnabled(status);
+        airRear.setEnabled(status);
+        airAc.setEnabled(status);
+        if (!status) {
+            showToast(this.getResources().getString(R.string.air_off));
         }
     }
 
@@ -255,16 +318,29 @@ public class AirActivity extends Activity implements SeekBar.OnSeekBarChangeList
             airRightFace.setVisibility(View.VISIBLE);
             airRightFeet.setVisibility(View.GONE);
             airRightFaceFeet.setVisibility(View.GONE);
+            airRightFeetShuang.setVisibility(View.GONE);
             rightWindNum = 1;
         } else if (rightWindNum == 1) {
             airRightFace.setVisibility(View.GONE);
             airRightFeet.setVisibility(View.VISIBLE);
             airRightFaceFeet.setVisibility(View.GONE);
+            airRightFeetShuang.setVisibility(View.GONE);
             rightWindNum = 2;
-        } else {
+        } else if (rightWindNum == 2) {
             airRightFace.setVisibility(View.GONE);
             airRightFeet.setVisibility(View.GONE);
             airRightFaceFeet.setVisibility(View.VISIBLE);
+            airRightFeetShuang.setVisibility(View.GONE);
+            if (airChuQu.isSelected()) {
+                rightWindNum = 3;
+            } else {
+                rightWindNum = 0;
+            }
+        } else {
+            airRightFace.setVisibility(View.GONE);
+            airRightFeet.setVisibility(View.GONE);
+            airRightFaceFeet.setVisibility(View.GONE);
+            airRightFeetShuang.setVisibility(View.VISIBLE);
             rightWindNum = 0;
         }
     }
@@ -277,16 +353,29 @@ public class AirActivity extends Activity implements SeekBar.OnSeekBarChangeList
             airLeftFace.setVisibility(View.VISIBLE);
             airLeftFeet.setVisibility(View.GONE);
             airLeftFaceFeet.setVisibility(View.GONE);
+            airLeftFeetShuang.setVisibility(View.GONE);
             leftWindNum = 1;
         } else if (leftWindNum == 1) {
             airLeftFace.setVisibility(View.GONE);
             airLeftFeet.setVisibility(View.VISIBLE);
             airLeftFaceFeet.setVisibility(View.GONE);
+            airLeftFeetShuang.setVisibility(View.GONE);
             leftWindNum = 2;
-        } else {
+        } else if (leftWindNum == 2) {
             airLeftFace.setVisibility(View.GONE);
             airLeftFeet.setVisibility(View.GONE);
             airLeftFaceFeet.setVisibility(View.VISIBLE);
+            airLeftFeetShuang.setVisibility(View.GONE);
+            if (airChuQu.isSelected()) {
+                leftWindNum = 3;
+            } else {
+                leftWindNum = 0;
+            }
+        } else {
+            airLeftFace.setVisibility(View.GONE);
+            airLeftFeet.setVisibility(View.GONE);
+            airLeftFaceFeet.setVisibility(View.GONE);
+            airLeftFeetShuang.setVisibility(View.VISIBLE);
             leftWindNum = 0;
         }
 
@@ -331,5 +420,33 @@ public class AirActivity extends Activity implements SeekBar.OnSeekBarChangeList
     private int getAirLevel(SeekBar seekBar, int flas) {
         return flas == 0 ? (int) (seekBar.getProgress() - 12.5f) : (int) (seekBar.getProgress() +
                 12.5f);
+    }
+
+    @Override
+    public void onFinish() {
+        //  overridePendingTransition(R.anim.fade_out, 0);
+//         finish();
+        new Thread() {
+            public void run() {
+                try {
+                    Instrumentation inst = new Instrumentation();
+                    inst.sendCharacterSync(4);
+                } catch (Exception e) {
+                    Log.e("Exception when onBack", e.toString());
+                }
+            }
+        }.start();
+    }
+
+    private final String SYSTEMUI_UP_DATA_TITLE = "com.android.systemui.up.data.statusbar.title";
+    //更新标题广播
+    private final String SYSTEMUI_UP_DATA_TITLE_CONTENT = "systemui_title_content";
+
+    @Override
+    protected void onDestroy() {
+        Intent intent = new Intent(SYSTEMUI_UP_DATA_TITLE);
+        intent.putExtra(SYSTEMUI_UP_DATA_TITLE_CONTENT, "systemUITitle");
+        sendBroadcast(intent);
+        super.onDestroy();
     }
 }

@@ -4,4 +4,6 @@
     <string name="air_contaminated_out_num">车外&#160;&#160;:</string>
     <string name="air_leve_less">风量已最小</string>
     <string name="air_leve_max">风量已最大</string>
+    <string name="air_off">OFF已关闭</string>
+    <string name="systemui_search">全局搜索</string>
 </resources>
