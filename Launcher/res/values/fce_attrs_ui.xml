@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <declare-styleable name="PUB">     
+        <attr name="pub_title_text" format="string"/>        
+    </declare-styleable>
+    
+    <declare-styleable name="RADIO">     
+        <attr name="radio_ruler_min_pos" format="dimension"/>  
+        <attr name="radio_ruler_max_pos" format="dimension"/>  
+        <attr name="radio_ruler_freq_num" format="integer"/>
+        <attr name="radio_ruler_text_color" format="color"/>
+        <attr name="radio_ruler_text_size" format="dimension"/>
+    </declare-styleable>
+    
+    <declare-styleable name="EQ">
+        <attr name="eq_balance_min_x" format="dimension"/>  
+        <attr name="eq_balance_min_y" format="dimension"/>
+        <attr name="eq_balance_max_x" format="dimension"/>  
+        <attr name="eq_balance_max_y" format="dimension"/>
+        <attr name="eq_balance_min_value" format="integer"/>  
+        <attr name="eq_balance_max_value" format="integer"/>
+        <attr name="eq_balance_bg" format="reference"/>
+        <attr name="eq_balance_block" format="reference"/>
+    </declare-styleable>
+    
+    <declare-styleable name="MEDIA">
+        <attr name="media_spectrum_min_value" format="integer"/>  
+        <attr name="media_spectrum_max_value" format="integer"/>
+        <attr name="media_spectrum_bg" format="reference"/>
+        <attr name="media_spectrum_color" format="reference"/>
+        <attr name="media_spectrum_shadow" format="reference"/>
+    </declare-styleable>
+    
+</resources>

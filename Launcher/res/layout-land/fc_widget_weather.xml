@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.fce.ui.widget.Widget_Main_Weather 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/widget_dynamic_source"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/weather_home_Ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/laun_rightwea_ba"
+        android:orientation="vertical" >
+
+        <!-- 天气晴背景图跟背景做到一起 -->
+
+   <!--      <ImageView
+            android:id="@+id/widget_dy_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/laun_weather_bg" /> -->
+
+        <ImageView
+            android:id="@+id/widget_weather_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/laun_weather_sunny" />
+
+        <TextView
+            android:id="@+id/widget_temperature_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/weather_tem_text"
+            android:textColor="@color/workspace_icon_text_color"
+            android:textSize="25sp" />
+        <TextView
+            android:id="@+id/widget_weather_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/weather_wea_text"
+            android:textColor="@color/workspace_icon_text_color"
+            android:textSize="15sp" />
+    </LinearLayout>
+    
+    <!-- 显示区 -->
+    <FrameLayout
+        android:id="@+id/widget_weather_fragment"
+        android:layout_width="214dp"
+        android:layout_height="300dp" />
+
+</com.fce.ui.widget.Widget_Main_Weather>

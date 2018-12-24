@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Full screen view projects under the status bar and contains the background -->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:launcher="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/launcher"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/workspace_bg">
+    
+    <!-- android:background="@drawable/workspace_03" -->
+
+
+	<!-- by xmc workspace：若状态栏是半透明的，可将android:fitsSystemWindows="false"，
+				然后再去调整各个元素的位置 -->
+    <com.android.launcher2.DragLayer
+        android:id="@+id/drag_layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <!-- The workspace contains 5 screens of cells -->
+        <!-- by xmc workspace：launcher:defaultScreen表示默认主页 -->
+        <com.android.launcher2.Workspace
+            android:id="@+id/workspace"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/workspace_left_padding"
+            android:paddingRight="@dimen/workspace_right_padding"
+            android:paddingTop="@dimen/workspace_top_padding"
+            android:paddingBottom="@dimen/workspace_bottom_padding"
+            launcher:defaultScreen="1"
+            launcher:cellCountX="@integer/cell_count_x"
+            launcher:cellCountY="@integer/cell_count_y"
+            launcher:pageSpacing="@dimen/workspace_page_spacing"
+            launcher:scrollIndicatorPaddingLeft="@dimen/qsb_bar_height"
+            launcher:scrollIndicatorPaddingRight="@dimen/button_bar_height"
+            android:background="@drawable/background_03">
+
+            <!-- by xmc 2016.12.16 第一页放置自己自定义的控件******-->
+            <include android:id="@+id/cell1" layout="@layout/fc_widget_one" />
+            <include android:id="@+id/cell2" layout="@layout/fc_widget_main" />
+            <include android:id="@+id/cell3" layout="@layout/fc_widget_three" />
+        </com.android.launcher2.Workspace>
+
+        <include
+            android:id="@+id/qsb_divider"
+            layout="@layout/workspace_divider"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40dp"
+            android:layout_gravity="left" />
+        <!-- android:layout_marginLeft="@dimen/qsb_bar_height" -->
+
+        <include
+            android:id="@+id/dock_divider"
+            layout="@layout/workspace_divider"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="40dp"
+            android:layout_gravity="right" />
+        <!-- android:layout_marginRight="@dimen/button_bar_height" -->
+        
+        <!-- xmc.launcher.indicator. -->
+        <com.android.launcher2.PageIndicatorView
+            android:id="@+id/page_icon_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/page_indicator_height"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="8dp" />
+
+        <!-- by xmc workspace：android:layout_height表示设置页码高度 -->
+        <include
+            android:id="@+id/paged_view_indicator"
+            layout="@layout/scroll_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom" />
+
+        <include layout="@layout/hotseat"
+            android:id="@+id/hotseat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:visibility="gone"
+             />
+
+        <include
+            android:id="@+id/qsb_bar"
+            layout="@layout/qsb_bar" />
+
+        <!-- The Workspace cling must appear under the AppsCustomizePagedView below to ensure
+             that it is still visible during the transition to AllApps and doesn't overlay on
+             top of that view. -->
+        <include layout="@layout/workspace_cling"
+            android:id="@+id/workspace_cling"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <include layout="@layout/folder_cling"
+            android:id="@+id/folder_cling"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <com.android.launcher2.DrawableStateProxyView
+            android:id="@+id/voice_button_proxy"
+            android:layout_width="40dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|left"
+            android:layout_marginTop="64dp"
+            android:clickable="true"
+            android:onClick="onClickVoiceButton"
+            android:importantForAccessibility="no"
+            launcher:sourceViewId="@+id/voice_button" />
+
+        <include layout="@layout/apps_customize_pane"
+            android:id="@+id/apps_customize_pane"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible" />
+    </com.android.launcher2.DragLayer>
+</FrameLayout>

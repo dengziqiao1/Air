@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- 各工程标题名 -->
+    <string name="pub_radio">Radio</string>
+    <string name="pub_bt">BT</string>
+    <string name="pub_btmusic">BT Music</string>
+    <string name="pub_navi">Navigation</string>
+    <string name="pub_aux">Aux</string>
+    <string name="pub_usb">USB</string>
+    <string name="pub_usb2">USB2</string>
+    <string name="pub_sd">SD</string>
+    <string name="pub_sd2">SD2</string>
+    <string name="pub_eq">EQ</string>
+    
+    <string name="pub_ok">OK</string>
+    <string name="pub_cancel">Cancel</string>
+    <string name="pub_close">Close</string>
+    <string name="pub_loading">Loading</string>
+    <string name="pub_brake_warm">Warm</string>
+    <string name="pub_brake_tip">Do not watch video while driving!</string>
+    <string name="pub_nosignal">No Signal</string>
+    <string name="pub_off">off</string>
+    <string name="pub_on">on</string>
+    
+    <string name="pub_week_mon">Mon.</string>
+    <string name="pub_week_tue">Tue.</string>
+    <string name="pub_week_wed">Wed.</string>
+    <string name="pub_week_thu">Thu.</string>
+    <string name="pub_week_fri">Fri.</string>
+    <string name="pub_week_sat">Sat.</string>
+    <string name="pub_week_sun">Sun.</string>
+</resources>

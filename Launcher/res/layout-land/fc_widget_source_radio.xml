@@ -1,0 +1,32 @@
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fcui="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+    
+    <ImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50px"
+        android:layout_marginLeft="7px"/>
+
+   
+    <TextView 
+        android:id="@+id/widget_radio_band"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="65px"
+        android:layout_marginLeft="255px"
+        android:textSize="18sp"/>
+    
+    <TextView 
+        android:id="@+id/widget_radio_freq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/widget_radio_band"
+        android:layout_marginTop="65px"
+        android:layout_marginLeft="5px"
+        android:textSize="18sp"/>
+
+</RelativeLayout>

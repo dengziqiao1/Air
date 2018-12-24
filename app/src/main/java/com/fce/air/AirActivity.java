@@ -60,12 +60,12 @@ public class AirActivity extends Activity implements SeekBar.OnSeekBarChangeList
         intentFilter.addAction("com.action.OPENAPP");
         intentFilter.addAction("com.action.HISTORY");
         registerReceiver(braocast, intentFilter);
+    
         BottomFinshLayout bottomFinshLayout = this.findViewById(R.id.air);
         leftVerSeekBar = this.findViewById(R.id.air_seekBar);
         rightVerSeekBar = this.findViewById(R.id.air_seekBar2);
         leftVerSeekBar.setVisibility(View.GONE);
         leftVerSeekBar.setVisibility(View.VISIBLE);
-
         leftSeekBarTex = this.findViewById(R.id.air_seekBar_left_text);
         leftSeekBarTex1 = this.findViewById(R.id.air_seekBar_left_text1);
         rightSeekBarTex = this.findViewById(R.id.air_seekBar_right_text);

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.launcher2.CellLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="28dp"
+    android:paddingRight="0dp"
+    android:paddingTop="20dp" >
+
+    <com.fce.ui.widget.Widget_One_Quiker
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</com.android.launcher2.CellLayout>

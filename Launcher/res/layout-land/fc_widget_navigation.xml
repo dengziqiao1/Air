@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.fce.ui.widget.Widget_Main_Navigation 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fcui="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <!-- 背景图 -->
+    <ImageView
+	    android:id="@+id/widget_navigation_area"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/laun_left_bg"
+	    />
+
+    <LinearLayout
+        android:id="@+id/navi_home_rl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="55dp"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/widget_navi_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/laun_location" />
+
+        <TextView
+            android:id="@+id/widget_navi_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="@string/navi_home_text"
+            android:textColor="@color/workspace_icon_text_color"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <!-- 显示区 -->
+    <FrameLayout
+        android:id="@+id/widget_navigation_fragment"
+        android:layout_width="214dp"
+        android:layout_height="300dp" />
+
+</com.fce.ui.widget.Widget_Main_Navigation>

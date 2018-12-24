@@ -1,0 +1,32 @@
+<resources>
+    
+    <!-- id3文本样式 -->  
+    <style name="widget_id3">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textColor">@color/hk_custom_text</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:text">123456789123456789343434</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:scrollHorizontally">true</item>
+    </style>
+
+    <!-- 标尺频点数字样式 -->  
+    <style name="widget_ruler_text_layout">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:layout_marginTop">13px</item>
+        <item name="android:gravity">center</item>
+    </style>  
+    <style name="widget_ruler_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/hk_custom_text</item>
+    </style>
+    
+    
+</resources>

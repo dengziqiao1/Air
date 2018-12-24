@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.fce.ui.widget.Widget_Main_Music
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/widget_source"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+    
+   	<!-- 背景图 -->
+    <ImageView
+	    android:id="@+id/widget_music_area"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/laun_middle_bg"
+	    />
+    
+    <!-- 显示区 -->
+    <FrameLayout
+        android:id="@+id/widget_music_fragment"
+        android:layout_width="520dp"
+        android:layout_height="300dp" />
+	
+</com.fce.ui.widget.Widget_Main_Music>

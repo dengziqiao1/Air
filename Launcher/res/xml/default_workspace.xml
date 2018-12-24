@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<favorites xmlns:launcher="http://schemas.android.com/apk/res-auto">
+    <!-- Far-left screen [0] -->
+    
+    <!-- Left screen [1] -->
+    <appwidget
+        launcher:packageName="com.android.settings"
+        launcher:className="com.android.settings.widget.SettingsAppWidgetProvider"
+        launcher:screen="1"
+        launcher:x="0"
+        launcher:y="3"
+        launcher:spanX="4"
+        launcher:spanY="1" />
+
+    <!-- Middle screen [2] -->
+    <!-- 第一屏默认不准添加东西，所以添加到第一屏的appwidget都是默认从第二屏开始的 -->
+    <appwidget
+        launcher:packageName="com.android.launcher"
+        launcher:className="com.android.launcher2.widget.ClockWidget"
+        launcher:screen="1"
+        launcher:x="0"
+        launcher:y="0"
+        launcher:spanX="2"
+        launcher:spanY="2" />
+
+
+    <!-- Right screen [3] -->
+     <appwidget
+        launcher:packageName="com.android.deskclock"
+        launcher:className="com.android.alarmclock.AnalogAppWidgetProvider"
+        launcher:screen="2"
+        launcher:x="0"
+        launcher:y="0"
+        launcher:spanX="2"
+        launcher:spanY="2" />
+    <favorite
+        launcher:packageName="com.android.settings"
+        launcher:className="com.android.settings.Settings"
+        launcher:screen="2"
+        launcher:x="3"
+        launcher:y="0" />
+    <favorite
+        launcher:packageName="com.android.soundrecorder"
+        launcher:className="com.android.soundrecorder.SoundRecorder"
+        launcher:screen="2"
+        launcher:x="3"
+        launcher:y="1" />
+
+    <!-- Far-right screen [4] -->
+    <favorite
+        launcher:packageName="com.android.settings"
+        launcher:className="com.android.settings.Settings"
+        launcher:screen="3"
+        launcher:x="1"
+        launcher:y="1" />
+
+
+
+
+</favorites>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/one_ll_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/driver_switch_onoff"
+            android:layout_width="353px"
+            android:layout_height="259px"
+            android:background="@drawable/laun_drivertired_n" />
+
+        <ImageView
+            android:id="@+id/mergeline_switch_onoff"
+            android:layout_width="353px"
+            android:layout_height="259px"
+            android:background="@drawable/laun_mergeline_n" />
+
+        <ImageView
+            android:id="@+id/tsp_switch_onoff"
+           android:layout_width="353px"
+            android:layout_height="259px"
+            android:background="@drawable/laun_tsr_n" />
+
+        <ImageView
+            android:id="@+id/automatic_switch_onoff"
+           android:layout_width="353px"
+            android:layout_height="259px"
+            android:background="@drawable/laun_lightauto_n" />
+
+        <ImageView
+            android:id="@+id/braking_switcher_onoff"
+            android:layout_width="353px"
+            android:layout_height="259px"
+            android:background="@drawable/laun_doublelight_n" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/one_ll_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/driver_knowledge"
+            android:layout_width="353px"
+            android:layout_height="259px"
+            android:background="@drawable/laun_taiya_n" />
+
+        <ImageView
+            android:id="@+id/recommend_radio_station"
+            android:layout_width="353px"
+            android:layout_height="259px"
+            android:background="@drawable/laun_all360_n" />
+
+        <ImageView
+            android:id="@+id/recommend_music"
+            android:layout_width="353px"
+            android:layout_height="259px"
+            android:background="@drawable/laun_fcw_n" />
+
+        <ImageView
+            android:id="@+id/update_app"
+            android:layout_width="353px"
+            android:layout_height="259px"
+            android:background="@drawable/laun_ldw_n" />
+
+        <ImageView
+            android:id="@+id/recommend_news"
+            android:layout_width="353px"
+            android:layout_height="259px"
+            android:background="@drawable/laun_speedcross_n" />
+    </LinearLayout>
+
+</LinearLayout>

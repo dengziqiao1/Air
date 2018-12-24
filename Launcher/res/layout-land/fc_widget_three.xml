@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.launcher2.CellLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="23dp"
+    android:paddingRight="0dp"
+    android:paddingTop="10dp" >
+
+        
+<!--      	<fce.ui.widget.Widget_Clock
+		 	android:layout_width="wrap_content"
+		   	android:layout_height="wrap_content" /> -->
+     	
+	    <com.fce.ui.widget.Widget_Three_Colourful
+		 	android:layout_width="match_parent"
+		   	android:layout_height="match_parent"/>
+
+       
+</com.android.launcher2.CellLayout>

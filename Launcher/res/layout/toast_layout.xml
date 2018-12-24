@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="right"
+    android:orientation="vertical"
+    android:paddingLeft="15sp"
+    android:paddingTop="10sp"
+    android:paddingBottom="10sp"
+    android:paddingRight="15sp"
+    android:background="#000000" >
+<!-- android:background="@drawable/toast_bg" -->
+    <TextView
+        android:id="@+id/toast_content"
+        android:layout_width="wrap_content"
+         android:textColor="#ffffff"
+        android:layout_height="wrap_content"
+        android:textSize="18sp" />
+  <!-- android:textSize="@dimen/hk_play_time_size"  -->
+</LinearLayout>

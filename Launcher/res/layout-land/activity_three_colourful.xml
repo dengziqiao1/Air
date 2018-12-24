@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/laun_eat_bg"
+            >
+
+            <ImageView
+                android:id="@+id/near_switch_onoff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/laun_eat_head" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="200dp"
+                android:text="@string/three_eat_text"
+                android:textSize="15sp"
+                android:textColor="@color/hk_custom_text" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/laun_paly_bg"
+            >
+
+            <ImageView
+                android:id="@+id/play_switch_onoff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/laun_play_head" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/three_play_text"
+                android:textColor="@color/hk_custom_text"
+                android:textSize="15sp"
+                android:layout_marginTop="200dp"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/laun_listen_bg"
+            >
+
+            <ImageView
+                android:id="@+id/enjoy_switch_onoff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/luan_listen_head" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/three_liten_text"
+                android:textColor="@color/hk_custom_text"
+                android:textSize="15sp"
+                android:layout_marginTop="200dp"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/laun_news_bg"
+            >
+
+            <ImageView
+                android:id="@+id/news_switch_onoff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/laun_news_head" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/three_news_text"
+                android:textColor="@color/hk_custom_text"
+                android:textSize="15sp"
+                android:layout_marginTop="200dp"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/laun_car_bg"
+            >
+
+            <ImageView
+                android:id="@+id/cars_switcher_onoff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/laun_car_head" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/three_cars_text"
+                android:textColor="@color/hk_custom_text"
+                android:layout_marginTop="200dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="15sp"
+                />
+        </RelativeLayout>
+
+</LinearLayout>

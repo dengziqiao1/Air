@@ -6,4 +6,20 @@
     <string name="air_leve_max">风量已最大</string>
     <string name="air_off">OFF已关闭</string>
     <string name="systemui_search">全局搜索</string>
+
+
+    <string name="systemui_title_radio">收音机</string>
+    <string name="systemui_title_set">设置</string>
+    <string name="systemui_title_media">音乐</string>
+    <string name="systemui_title_photo">图片</string>
+    <string name="systemui_title_video">视频</string>
+    <string name="systemui_title_map">地图</string>
+    <string name="systemui_title_voice">语音</string>
+    <string name="systemui_title_ifly">讯飞</string>
+    <string name="systemui_title_phone">电话</string>
+    <string name="systemui_title_easyconn">连接</string>
+    <string name="systemui_title_dvr">行车记录仪</string>
+    <string name="systemui_title_360">360全景</string>
+    <string name="systemui_title_usb">USB</string>
+    <string name="systemui_title_file">文件管理器</string>
 </resources>
