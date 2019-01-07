@@ -10,7 +10,7 @@
 
     <style name="NoActionBar">
         <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@color/translucent</item>
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+        <!--<item name="android:windowBackground">@color/translucent</item>-->
     </style>
 </resources>

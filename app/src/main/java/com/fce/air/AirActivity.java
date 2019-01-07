@@ -15,6 +15,8 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fce.air.test.DrawerLayout;
+
 
 /**
  * 空调
@@ -40,28 +42,28 @@ public class AirActivity extends Activity implements SeekBar.OnSeekBarChangeList
     private ImageView airAuto, airEcon, airOff, airChuQu, airChuShaunag, airAcMax, airSync,
             airRear, airAc, airNixunhuan;    //控制开关
 
+    private DrawerLayout drawerLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_air);
         initView();
     }
+
     /**
      * 初始化View
      */
     private void initView() {
-        Intent intent = new Intent(SYSTEMUI_UP_DATA_TITLE);
-        intent.putExtra(SYSTEMUI_UP_DATA_TITLE_CONTENT, "收音机");
-        sendBroadcast(intent);
-
         myBraocast braocast = new myBraocast();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.action.OPENSUBSCRIBE");
         intentFilter.addAction("com.action.OPENAPP");
         intentFilter.addAction("com.action.HISTORY");
         registerReceiver(braocast, intentFilter);
-    
-        BottomFinshLayout bottomFinshLayout = this.findViewById(R.id.air);
+
+        // BottomFinshLayout bottomFinshLayout = this.findViewById(R.id.air);
+        drawerLayout = this.findViewById(R.id.air_drawer);
         leftVerSeekBar = this.findViewById(R.id.air_seekBar);
         rightVerSeekBar = this.findViewById(R.id.air_seekBar2);
         leftVerSeekBar.setVisibility(View.GONE);
@@ -127,7 +129,7 @@ public class AirActivity extends Activity implements SeekBar.OnSeekBarChangeList
         rightLeveAdd.setOnClickListener(this);
         airLeftWin.setOnClickListener(this);
         airRightWin.setOnClickListener(this);
-        bottomFinshLayout.setOnFinishListener(this);
+        // bottomFinshLayout.setOnFinishListener(this);
 
         airOff.setSelected(true);  //off 默认开启
 

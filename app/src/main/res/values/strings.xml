@@ -22,4 +22,5 @@
     <string name="systemui_title_360">360全景</string>
     <string name="systemui_title_usb">USB</string>
     <string name="systemui_title_file">文件管理器</string>
+    <string name="systemui_title_bell">铃声</string>
 </resources>

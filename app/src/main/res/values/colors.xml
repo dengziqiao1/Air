@@ -6,5 +6,9 @@
     <color name="whites">#faf7f0</color>
     <color name="yellows">#efe4bf</color>
     <color name="translucent">#01000000</color>
+    <color name="black">#000000</color>
     <color name="gray">#808080</color>
+
+    <color name="blue">#1296db</color>
+    <color name="whites2">#cdcdcd</color>
 </resources>
