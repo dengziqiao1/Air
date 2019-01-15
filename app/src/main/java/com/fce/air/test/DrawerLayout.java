@@ -835,18 +835,9 @@ public class DrawerLayout extends ViewGroup {
      * @return the drawer with the specified gravity
      */
     View findDrawerWithGravity(int gravity) {
-        final int absHorizGravity = GravityCompat.getAbsoluteGravity(gravity, ViewCompat
-                .getLayoutDirection(this)) & Gravity.HORIZONTAL_GRAVITY_MASK;
-        final int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            final View child = getChildAt(i);
-            final int childAbsGravity = getDrawerViewAbsoluteGravity(child);
-            if ((childAbsGravity & Gravity.HORIZONTAL_GRAVITY_MASK) == absHorizGravity) {
-                return child;
-            }
-        }
-        return null;
+        return getChildAt(0);
     }
+
     /**
      * Simple gravity to string - only supports LEFT and RIGHT for debugging output.
      *
@@ -981,8 +972,8 @@ public class DrawerLayout extends ViewGroup {
                             gravityToString(childGravity) + " but this " + TAG + " already has a " +
                             "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
                             "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-                            "" + "" + "" + "" + "" + "drawer " + "view " + "along " + "" + "that " +
-                            "" + "" + "edge");
+                            "" + "" + "" + "" + "" + "" + "" + "" + "" + "drawer " + "view " +
+                            "along " + "" + "" + "that " + "" + "" + "edge");
                 }
                 if (isLeftEdgeDrawer) {
                     hasDrawerOnLeftEdge = true;
@@ -998,10 +989,10 @@ public class DrawerLayout extends ViewGroup {
                 throw new IllegalStateException("Child " + child + " at index " + i + " does not " +
                         "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + ""
                         + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" + "" +
-                        "" + "" + "" + "have " + "a " + "valid" + " " + "layout_gravity" + " - "
-                        + "" + "must " + "be" + "" + " " + "Gravity" + "" + "" + ".LEFT, " + "" +
-                        "Gravity" + "" + "" + "" + ".RIGHT " + "or " + "Gravity" + "" + "" + "" +
-                        ".NO_GRAVITY");
+                        "" + "" + "" + "" + "" + "" + "" + "have " + "a " + "valid" + " " +
+                        "layout_gravity" + "" + " - " + "" + "must " + "be" + "" + " " +
+                        "Gravity" + "" + "" + ".LEFT, " + "" + "Gravity" + "" + "" + "" + "" + "" +
+                        ".RIGHT" + " " + "or " + "Gravity" + "" + "" + "" + ".NO_GRAVITY");
             }
         }
     }
