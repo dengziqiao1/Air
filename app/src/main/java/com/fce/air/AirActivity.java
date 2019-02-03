@@ -23,7 +23,8 @@ import com.fce.air.test.DrawerLayout;
  */
 public class AirActivity extends Activity implements SeekBar.OnSeekBarChangeListener, View
         .OnClickListener, BottomFinshLayout.OnFinishListener {
-    private VerticalSeekBar leftVerSeekBar, rightVerSeekBar;  //垂直进度条
+    private VerticalSeekBar leftVerSeekBar, rightVerSeekBar;
+    //垂直进度条
     private SeekBar leftLeveSeekBar, rightLeveSeekBar; //风量左右 等级进度条
     private ImageView leftLeveLess, rightLeveLess, leftLeveAdd, rightLeveAdd; // 空调风量加减 键
     //左右两边显示温度
