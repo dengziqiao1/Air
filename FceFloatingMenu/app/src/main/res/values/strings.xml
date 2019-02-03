@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">FceFloatingMenu</string>
+    <string name="floating_notif">通知</string>
+    <string name="floating_switch">开关</string>
+    <string name="floating_wifi_close">WLAN关闭</string>
+    <string name="floating_wifi_opening">WLAN&#8230;&#8230;&#8230;</string>
+    <string name="floating_wifi_open">WLAN</string>
+    <string name="floating_bluetooth_close">蓝牙关闭</string>
+    <string name="floating_bluetooth_opening">蓝牙&#8230;&#8230;&#8230;</string>
+    <string name="floating_bluetooth_open">蓝牙</string>
+    <string name="floating_data_4g">移动数据</string>
+    <string name="floating_media_volume">媒体音量:&#160;&#160;40</string>
+    <string name="floating_phone_volume">电话音量:&#160;&#160;6</string>
+    <string name="floating_map_volume">导航音量:&#160;&#160;89</string>
+    <string name="floating_light_volume">亮度:&#160;&#160;56</string>
+    <string name="floating_usb_connect">USB&#160;&#160;已连接</string>
+    <string name="floating_usb_disconnect">USB设备已移除!</string>
+</resources>

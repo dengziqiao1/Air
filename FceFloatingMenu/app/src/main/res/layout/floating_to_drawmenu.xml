@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/floating_drop_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+
+    <Button
+        android:id="@+id/floating_handle"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@color/transparent"/>
+
+    <RelativeLayout
+        android:id="@+id/floating_line_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/downmenu">
+
+        <LinearLayout
+            android:id="@+id/floating_line"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/floating_switch"
+                android:textColor="@color/whites"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/floating_notif"
+                android:textColor="@color/whites"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/floating_line"
+            android:baselineAligned="true"
+            android:orientation="horizontal">
+            <!--左侧 开关-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <!--wifi bluetooth 4g-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/floating_wifi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/wifi_selection"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:text="@string/floating_wifi_open"
+                        android:textColor="@color/whites"
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:id="@+id/floating_bluetooth"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/bluetooth_selection"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:text="@string/floating_bluetooth_open"
+                        android:textColor="@color/whites"
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:id="@+id/floating_data_4g"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="40dp"
+                        android:layout_weight="1"
+                        android:drawableTop="@drawable/data_4g_selection"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:text="@string/floating_data_4g"
+                        android:textColor="@color/whites"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+                <!--seekBar-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="30dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/floating_media_tex"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:text="@string/floating_media_volume"
+                            android:textColor="@color/whites"
+                            android:textSize="18sp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="20dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/floating_media_less"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/less_selection"/>
+
+                            <android.support.v7.widget.AppCompatSeekBar
+                                android:id="@+id/floating_media_seekBar"
+                                android:layout_width="134dp"
+                                android:layout_height="8dp"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="5dp"
+                                android:maxWidth="8dp"
+                                android:minWidth="8dp"
+                                android:progress="10"
+                                android:progressDrawable="@drawable/seekbar_color"
+                                android:thumb="@null"/>
+
+                            <ImageView
+                                android:id="@+id/floating_media_add"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/add_selection"/>
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/floating_map_tex"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/floating_map_volume"
+                            android:textColor="@color/whites"
+                            android:textSize="18sp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="20dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/floating_map_less"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/less_selection"/>
+
+                            <android.support.v7.widget.AppCompatSeekBar
+                                android:id="@+id/floating_map_seekBar"
+                                android:layout_width="134dp"
+                                android:layout_height="8dp"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="5dp"
+                                android:maxWidth="8dp"
+                                android:minWidth="8dp"
+                                android:progress="10"
+                                android:progressDrawable="@drawable/seekbar_color"
+                                android:thumb="@null"/>
+
+                            <ImageView
+                                android:id="@+id/floating_map_add"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/add_selection"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="30dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/floating_phone_tex"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:text="@string/floating_phone_volume"
+                            android:textColor="@color/whites"
+                            android:textSize="18sp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="20dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/floating_phone_less"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/less_selection"/>
+
+                            <android.support.v7.widget.AppCompatSeekBar
+                                android:id="@+id/floating_phone_seekBar"
+                                android:layout_width="134dp"
+                                android:layout_height="8dp"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="5dp"
+                                android:maxWidth="8dp"
+                                android:minWidth="8dp"
+                                android:progress="10"
+                                android:progressDrawable="@drawable/seekbar_color"
+                                android:thumb="@null"/>
+
+                            <ImageView
+                                android:id="@+id/floating_phone_add"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/add_selection"/>
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/floating_light_tex"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/floating_light_volume"
+                            android:textColor="@color/whites"
+                            android:textSize="18sp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="20dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/floating_light_less"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/less_selection"/>
+
+                            <android.support.v7.widget.AppCompatSeekBar
+                                android:id="@+id/floating_light_seekBar"
+                                android:layout_width="134dp"
+                                android:layout_height="8dp"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="5dp"
+                                android:maxWidth="8dp"
+                                android:minWidth="8dp"
+                                android:progress="10"
+                                android:progressDrawable="@drawable/seekbar_color"
+                                android:thumb="@null"/>
+
+                            <ImageView
+                                android:id="@+id/floating_light_add"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/add_selection"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="100dp"
+                android:layout_weight="1"
+                android:scrollbars="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/floating_line1"
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/floating_usb_connect_tex"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="20dp"
+                            android:text="@string/floating_usb_connect"
+                            android:textColor="@color/whites"
+                            android:textSize="18sp"/>
+
+                        <ImageView
+                            android:id="@+id/floating_usb_charge"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_below="@+id/floating_usb_connect_tex"
+                            android:layout_marginStart="20dp"
+                            android:background="@drawable/notiaf_clear_selection"/>
+
+                        <ImageView
+                            android:id="@+id/floating_usb_data"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_below="@+id/floating_usb_connect_tex"
+                            android:layout_toEndOf="@+id/floating_usb_charge"
+                            android:background="@drawable/notiaf_clear_selection"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_below="@+id/floating_usb_data"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/line"/>
+                    </RelativeLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/floating_recycler_notif"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:nestedScrollingEnabled="false"
+                        android:scrollbars="vertical"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+                    </android.support.v7.widget.RecyclerView>
+                </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/floating_notif_clear"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="650dp"
+            android:layout_marginTop="280dp"
+            android:background="@drawable/notiaf_clear_selection"/>
+    </RelativeLayout>
+</FrameLayout>

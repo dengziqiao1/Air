@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true">
+        <bitmap android:alpha="0.5" android:src="@drawable/clear"/>
+    </item>
+    <item>
+        <bitmap android:alpha="1.0" android:src="@drawable/clear"/>
+    </item>
+</selector>

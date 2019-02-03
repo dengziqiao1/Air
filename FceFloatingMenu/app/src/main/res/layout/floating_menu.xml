@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false">
+
+    <FrameLayout
+        android:id="@+id/floating_top_right_menu"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:background="@color/colorAccent">
+    </FrameLayout>
+
+    <com.fce.fcefloatingmenu.floating.test.GenericDrawerLayout
+        android:id="@+id/floating_menu"
+        android:layout_width="match_parent"
+        android:layout_height="720dp">
+
+    </com.fce.fcefloatingmenu.floating.test.GenericDrawerLayout>
+    <!--<FrameLayout-->
+    <!--android:id="@+id/floating_menu"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:background="@color/colorPrimary">-->
+
+    <!--</FrameLayout>-->
+    <!--<include layout="@layout/floating_to_drawmenu"></include>-->
+</FrameLayout>
