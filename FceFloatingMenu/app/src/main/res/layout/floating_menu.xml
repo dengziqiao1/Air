@@ -2,7 +2,7 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:clipChildren="false">
 
     <FrameLayout
@@ -13,18 +13,9 @@
         android:background="@color/colorAccent">
     </FrameLayout>
 
-    <com.fce.fcefloatingmenu.floating.test.GenericDrawerLayout
+    <com.fce.fcefloatingmenu.utils.GenericDrawerLayout
         android:id="@+id/floating_menu"
         android:layout_width="match_parent"
-        android:layout_height="720dp">
-
-    </com.fce.fcefloatingmenu.floating.test.GenericDrawerLayout>
-    <!--<FrameLayout-->
-    <!--android:id="@+id/floating_menu"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="0dp"-->
-    <!--android:background="@color/colorPrimary">-->
-
-    <!--</FrameLayout>-->
-    <!--<include layout="@layout/floating_to_drawmenu"></include>-->
+        android:layout_height="match_parent">
+    </com.fce.fcefloatingmenu.utils.GenericDrawerLayout>
 </FrameLayout>

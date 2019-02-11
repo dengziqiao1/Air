@@ -1,4 +1,4 @@
-package com.fce.fcefloatingmenu;
+package com.fce.fcefloatingmenu.utils;
 
 import android.util.Log;
 

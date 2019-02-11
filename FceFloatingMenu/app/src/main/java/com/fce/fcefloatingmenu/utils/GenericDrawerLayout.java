@@ -1,4 +1,4 @@
-package com.fce.fcefloatingmenu.floating.test;
+package com.fce.fcefloatingmenu.utils;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -36,7 +36,7 @@ public class GenericDrawerLayout extends FrameLayout {
     /**
      * 默认的响应触摸事件的宽度值，单位DIP
      */
-    private static final int TOUCH_VIEW_SIZE_DIP = 25;
+    private static final int TOUCH_VIEW_SIZE_DIP = 10;
     /**
      * 打开抽屉时，默认响应关闭事件的宽度
      */
@@ -52,7 +52,7 @@ public class GenericDrawerLayout extends FrameLayout {
     /**
      * 响应打开或者关闭的速率
      */
-    private static final int VEL = 800;
+    private static final int VEL = 10;
 
     private VelocityTracker mVelocityTracker;
 
@@ -171,6 +171,7 @@ public class GenericDrawerLayout extends FrameLayout {
                 ViewGroup.LayoutParams.WRAP_CONTENT));
         // 用来判断事件下发的临界距离
         mMinDisallowDispatch = dip2px(mContext, MIN_CONSUME_SIZE_DIP);
+        setTouchSizeOfOpened(40);
     }
 
     public static int dip2px(Context context, float dipValue) {
@@ -227,12 +228,13 @@ public class GenericDrawerLayout extends FrameLayout {
         }
         this.mDrawerEmptySize = emptySize;
     }
+
     public boolean isfase = false;
+
     /**
      * 抽屉容器
      */
     private class ContentLayout extends FrameLayout {
-
         private float mDownX, mDownY;
         private boolean isTouchDown;
 
@@ -304,6 +306,7 @@ public class GenericDrawerLayout extends FrameLayout {
         public void requestDisallowInterceptTouchEvent(boolean disallowIntercept) {
             super.requestDisallowInterceptTouchEvent(disallowIntercept);
         }
+
         @Override
         public boolean dispatchTouchEvent(MotionEvent event) {
             if (getVisibility() != View.VISIBLE) {
@@ -532,13 +535,13 @@ public class GenericDrawerLayout extends FrameLayout {
                     // 显示抽屉
                     mContentLayout.setVisibility(View.VISIBLE);
                     // 调整抽屉位置
-                    adjustContentLayout();
                     if (mDrawerCallback != null) {
                         // 回调事件（开始打开抽屉）
                         mDrawerCallback.onPreOpen();
                     }
+                    adjustContentLayout();
                     // 隐藏TouchView
-                    setVisibility(View.INVISIBLE);
+                    // setVisibility(View.INVISIBLE);
                     // isChildConsume = super.dispatchTouchEvent(event);
                     break;
                 default:
@@ -547,11 +550,13 @@ public class GenericDrawerLayout extends FrameLayout {
                     }*/
                     break;
             }
-            // 处理Touch事件
             performDispatchTouchEvent(event);
             return true;
         }
     }
+
+    long currentMS;
+    float DownY, moveY1 = 0;
 
     private void performDispatchTouchEvent(MotionEvent event) {
         if (mVelocityTracker == null) {
@@ -562,24 +567,40 @@ public class GenericDrawerLayout extends FrameLayout {
         MotionEvent trackerEvent = MotionEvent.obtain(event);
         trackerEvent.setLocation(event.getRawX(), event.getRawY());
         mVelocityTracker.addMovement(trackerEvent);
+
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 // 记录当前触摸的位置
                 mCurTouchX = event.getRawX();
                 mCurTouchY = event.getRawY();
+
+                DownY = event.getY();
+                moveY1 = 0;
+                currentMS = System.currentTimeMillis();
                 break;
             case MotionEvent.ACTION_MOVE:
                 float moveX = event.getRawX() - mCurTouchX;
                 float moveY = event.getRawY() - mCurTouchY;
-                // 移动抽屉
-                translateContentLayout(moveX, moveY);
+                moveY1 += Math.abs(event.getY() - mCurTouchY);//X轴距离
+                DownY = event.getY();
+                if (moveY > 5 || moveY < 0) {
+                    translateContentLayout(moveX, moveY);
+                }
                 mCurTouchX = event.getRawX();
                 mCurTouchY = event.getRawY();
                 break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
                 // 处理抬起事件
-                handleTouchUp();
+                long moveTime = System.currentTimeMillis() - currentMS;
+                if (moveTime > 200 && moveY1 > 0.0) {
+                    handleTouchUp();
+                } else {
+                    if (mDrawerCallback != null && mCurTouchY < 680) {
+                        mDrawerCallback.onEndClose();
+                    }
+                }
+
                 break;
         }
     }
@@ -709,7 +730,7 @@ public class GenericDrawerLayout extends FrameLayout {
                 }
                 break;
             case Gravity.TOP:
-                if (velocityY > VEL || (getCurTranslation() > -mContentLayout.getHeight() * SCALE_AUTO_OPEN_CLOSE) && velocityY > -VEL) {
+                if (velocityY > VEL || (getCurTranslation() > -mContentLayout.getHeight() * SCALE_AUTO_OPEN_CLOSE)) {
                     // 速度足够，或者移动距离足够，打开抽屉
                     autoOpenDrawer();
                 } else {
@@ -954,10 +975,9 @@ public class GenericDrawerLayout extends FrameLayout {
                 mStartTranslationY = mContentLayout.getHeight() - mDrawerEmptySize - mRevealSize;
                 break;
         }
-
         // 移动抽屉
         ViewHelper.setTranslationX(mContentLayout, mStartTranslationX);
-        ViewHelper.setTranslationY(mContentLayout, mStartTranslationY);
+        ViewHelper.setTranslationY(mContentLayout, -720);
     }
 
     /**

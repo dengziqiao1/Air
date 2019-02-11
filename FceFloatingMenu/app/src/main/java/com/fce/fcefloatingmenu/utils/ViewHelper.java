@@ -1,9 +1,9 @@
-package com.fce.fcefloatingmenu.floating.test;
+package com.fce.fcefloatingmenu.utils;
 
 import android.view.View;
 
-import static com.fce.fcefloatingmenu.floating.test.AnimatorProxy.NEEDS_PROXY;
-import static com.fce.fcefloatingmenu.floating.test.AnimatorProxy.wrap;
+import static com.fce.fcefloatingmenu.utils.AnimatorProxy.NEEDS_PROXY;
+import static com.fce.fcefloatingmenu.utils.AnimatorProxy.wrap;
 
 public final class ViewHelper {
     private ViewHelper() {
